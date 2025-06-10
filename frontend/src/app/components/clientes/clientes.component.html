@@ -1,0 +1,27 @@
+<div class="clientes-container">
+  <h2>Lista de Clientes</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>País</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.telefono | telefono }}</td>
+        <td>{{ cliente.pais }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="paginacion">
+  <button (click)="cambiarPagina(page - 1)" [disabled]="page === 1">Anterior</button>
+  <span>Página {{ page }}</span>
+  <button (click)="cambiarPagina(page + 1)" [disabled]="clientes.length < size">Siguiente</button>
+</div>
+
+
+
